@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>   
+    <meta charset="UTF-8">
+    <title>v135a</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label, fieldset {
+            color: #34626c
+        }
+        label {
+            font-size: 0.8em;
+        }
+        input {
+            width: 100%;
+            padding: 1em;
+            border: 1px sold #bbbbbb;
+            border-radius: 5px;
+            box-sizing: border-box;
+            margin-top: 1em;
+        }
+        .form {
+            background-color: #cfd3ce;
+            padding: 2em;
+        }
+        input[type=submit] {
+            background-color:#34626c;
+            font-size:1.2em;
+            color: white;
+        }
+        /* pallette= https://colorhunt.co/palette/220246 */
+    </style>
+</head>
+<body>   
+    <div class="form">
+        <form name="theForm" action="" method="post" onsubmit = "return(validate());">
+            <fieldset>
+                <legend>εγγραφή χρήστη</legend>       
+                <label for="email">Ταυτότητα χρήστη (email):</label>
+                <input type="email" id="email" name="email" 
+                placeholder="δώστε το email σας" required><br>
+                <label for="passw1">Κωδικός πρόσβασης:</label>
+                <input type="password" id="pass1" name="password1" 
+                placeholder="κωδικός 5 τουλάχιστον χαρακτήρων με αριθμούς και γράμματα" required><br>
+                <label for="passw2">Επιβεβαίωση κωδικού:</label>
+                <input type="password" id="pass2" name="password2" 
+                placeholder="επαναλάβατε τον κωδικό που δώσατε πιο πάνω" required><br>
+                <input type="submit" value='υποβολή'>
+            </fieldset>  
+        </form>
+    </div>
+    <script>
+        function validate(){
+            const pattern = /^(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z]).{5,}$/;
+            // a password of at least 5 characters that contains at least one numeric digit, one uppercase, one lowercase
+            if (document.theForm.password1.value.length < 5 || 
+                document.theForm.password1.value !== document.theForm.password2.value){
+                alert("Οι κωδικοί θα πρέπει να περιέχουν τουλάχιστον 5 χαρακτήρες και να είναι οι ίδιοι");
+                document.theForm.password1.focus();
+                return false;
+            } else if (!document.theForm.password1.value.match(pattern)){
+                alert("Προσοχή οι κωδικοί θα πρέπει να περιέχουν ένα τουλάχιστον πεζό γράμμα, ένα κεφαλαίο και ένα αριθμό");
+                document.theForm.password1.focus();
+                return false;
+            }
+            return true;
+        }
+    </script>
+    
+</body>
+</html>

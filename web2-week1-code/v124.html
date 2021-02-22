@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v124</title>
+    <style>
+        label, input {
+            margin: 0.5em;
+            padding: 0.2em;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <form>
+        <label for="name">Όνομα: </label>
+        <input id="name" type="text" autofocus size="30" required
+        name="name" placeholder="δώστε το όνομά σας"><br>
+        <label for="surname">Επίθετο: </label>
+        <input id="surname" type="text" name="surname" required
+        placeholder="δώστε το επίθετό σας" size="30"><br>
+        <label for="age">Ηλικία: </label>
+        <input id="age" type="number" name="age" min="17" max="117" value="30"><br>
+        <input type="radio" id="andras" value="andras" name="gender" checked>
+        <label for="andras">Άνδρας  </label>
+        <input type="radio" id="gynaika" value="gynaika" name="gender">
+        <label for="gynaika">Γυναίκα </label><br>
+        <hr>
+        <label for="date">Ημερομηνία γέννησης:</label>
+        <input type="date" id="date" name="date">
+        <hr>
+        <label for="item1">Μού αρέσει....</label><br>
+        <input type="checkbox" id="item1" name="item1" value="nature">
+        <label for="item1">Η ζωή στη φύση </label><br>
+        <input type="checkbox" id="item2" name="item2" value="reading">
+        <label for="item2"> Το διάβασμα </label><br>
+        <input type="checkbox" id="item3" name="item3" value="sports">
+        <label for="item3">Ο αθλητισμός </label><br> 
+        <input type= "submit" value="Υποβολή στοιχείων">
+    </form>
+    <!-- name=Nikos&surname=Avouris&age=60&gender=andras&item1=nature&item3=sports -->
+</body>
+</html>

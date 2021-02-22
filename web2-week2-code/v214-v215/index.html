@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v142</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label, input, output, #knowledge, legend, select, textarea, #message{
+            margin: 0.5em;
+            padding: 0.2em;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 5px;
+        }
+        output {
+            border: 1px solid black;
+        }
+        label.range {
+            display: inline-block;
+            width: 5em;
+            text-align: right;
+        }
+        fieldset {
+            margin-top: 2em;
+        }
+        legend {
+            background-color: #000;
+            color: #ffffff;
+        }
+        input[type=submit] {
+            background-color: #00bb00;
+        }
+        textarea {
+            background-color: #fafafa;
+            /* resize: none; */
+        }
+        #charsLeft {
+            color: #ababab;
+            font-size: 0.8em;
+            border: none;
+        }
+        #message {
+            border: none;
+        }
+        #age {
+            background-color:#efefef;
+        }
+    </style>
+</head>
+<body>
+    <h1> Στείλτε τα στοιχεία σας για το θερινό σχολείο </h1>
+    <h3> Συμπληρώστε τη φόρμα </h3>
+    <form id="myForm" method="post" onsubmit="return(validate());">
+        <output id="message"></output>
+        <!-- προσωπικά στοιχεία -->
+        <fieldset> 
+            <legend>Προσωπικά στοιχεία</legend>
+            <label for="name">*Όνομα: </label>
+            <input id="name" type="text" autofocus size="30" required
+            name="name" placeholder="π.χ. Γιώργος"><br>
+            <label for="surname">*Επίθετο: </label>
+            <input id="surname" type="text" name="surname" required
+            placeholder="π.χ. Γεωργίου" size="30"><br>
+            <label for="emai">*Email: </label>
+            <input id="email" type="email" name="email" required><br>
+            <label for="age">Ηλικία: </label>
+            <input id="age" type="number" name="age" min="17" max="117" readonly ><br>
+            <input type="radio" id="andras" value="andras" name="gender" >
+            <label for="andras">Άνδρας  </label>
+            <input type="radio" id="gynaika" value="gynaika" name="gender">
+            <label for="gynaika">Γυναίκα </label><br>
+            <label for="date">*Ημερομηνία γέννησης:</label>
+            <input type="date" id="date" name="date">
+        </fieldset>
+
+        <!-- κατοικία -->
+        <fieldset>
+            <legend>Κατοικία</legend>
+            <label for="address">Διεύθυνση:</label>
+            <input id="address" type="text" size="25"
+            name="address" placeholder="πχ. Δήλου 12"><br>
+            <label for="city">Πόλη:</label>
+            <input id="city" type="text" name="city"
+            placeholder="πχ. Πάτρα" size="15">
+            <label for="postcode">Ταχ.Κωδ.:</label>
+            <input id="postcode" type="number" name="postcode" 
+            min="10000" max="99999"><br>
+            <label for="region">*Περιφέρεια:</label>
+            <select name="region" id="region" required>
+                <!-- εδώ θα μπούν οι επιλογές που δημιουργούνται από τη JavaScript -->
+            </select>
+        </fieldset>
+
+        <!-- Γνώσεις -->
+        <fieldset>
+            <legend>Γνώσεις</legend>
+            <div id="knowledge">Σημειώστε τις γνώσεις σας (0=καθόλου, 5=άριστες)</div>
+            <label for="html" class="range" > HTML5 </label>
+            <input type="range" id="html" min="0" max="5" step="1" value="5" name="html">
+            <output id="showH"></output><br>
+            <label for="css" class="range" > CSS3 </label>
+            <input type="range" id="css" min="0" max="5" step="1" value="5" name="css">
+            <output id="showC"></output><br>
+            <label for="js" class="range" > JavaScript </label>
+            <input type="range" id="js" min="0" max="5" step="1" value="5" name="js">
+            <output id="showJ"></output><br>
+        </fieldset>
+
+        <!-- Ενδιαφέροντα -->
+        <fieldset>
+            <legend>Ενδιαφέροντα</legend>
+            <input type="checkbox" id="interest1" name="interest1" value="nature">
+            <label for="interest1">Η ζωή στη φύση </label><br>
+            <input type="checkbox" id="interest2" name="interest2" value="reading">
+            <label for="interest2">Το διάβασμα </label><br>
+            <input type="checkbox" id="interest3" name="interest3" value="sports">
+            <label for="interest3"> Ο αθλητισμός </label><br>
+        </fieldset>
+
+        <!-- Σύντομη δήλωση -->
+        <fieldset>
+            <legend>*Μια σύντομη δήλωση ...</legend>
+            <textarea name="aboutMe"  id="mytext" required
+            placeholder="γράψτε δύο λόγια για σάς, (μέγιστο 500 χαρακτήρες)" 
+            cols="50" rows="10" maxlength="500"></textarea><br>
+            <output id="charsLeft"></output>
+        </fieldset>
+
+        <input type= "submit" value="Υποβολή στοιχείων"><br>
+    </form>
+
+    <script>
+        function validate(){
+            if (document.querySelector("#age").value<18){
+                document.querySelector("#message").innerHTML=
+                "ΠΡΟΣΟΧΗ: Το βιογραφικό δεν υποβλήθηκε.<br>Δεν είναι επιτρεπτή η υποβολή βιογραφικού από άτομο ηλικίας μικρότερης των 18 ετών";
+                document.querySelector("#message").style.color="#ef0000";
+                document.querySelector("#message").autofocus = "on";
+                document.querySelector("#age").style.backgroundColor="#efefef";
+                return false;
+            }
+            return true;
+        }
+
+        // υπολογισμός ηλικίας - το στοιχείο date επιστρέφει yyyy-mm-dd
+        document.querySelector("#date").addEventListener("change", (e)=>{
+            const ageInMilliseconds = Date.now() - 
+            new Date(document.querySelector("#date").value);
+            if (ageInMilliseconds<0){
+                alert("Μη επιτρεπτή ημερομηνία γέννησης");
+                document.querySelector("#date").value="";
+                document.querySelector("#age").style.backgroundColor="white";
+                return false;
+            }
+            const age = 
+            Math.floor(ageInMilliseconds/(1000 * 60 * 60 * 24 * 365.25));
+            document.querySelector("#age").value = age;
+            if (age<18){
+                document.querySelector("#age").style.backgroundColor = "#bf0f0f";
+                alert("Δεν επιτρέπεται υποβολή της φόρμας για ηλικία μικρότερη των 18");
+            }
+            document.querySelector("#age").style.backgroundColor="white";
+        })
+
+        //μέτρησε χαρακτήρες που απομένουν
+        const chars = document.querySelector("#mytext");
+        const charsleft = document.querySelector("#charsLeft");
+        chars.addEventListener("input", (e)=>{
+            console.log(chars);
+            charsleft.value = `μένουν ακόμη ${chars.maxLength-chars.value.length} χαρακτήρες`;
+        })
+        
+        // δημιουργία αναπτυσσόμενου μενού επιλογών των περιφερειών
+        const regionSelect = document.querySelector("#region");
+        const regionsList = `Ανατολική Μακεδονία και Θράκη
+Κεντρική Μακεδονία
+Δυτική Μακεδονία
+Ηπειρος
+Θεσσαλία
+Ιόνιοι Νήσοι
+Δυτική Ελλάδα
+Στερεά Ελλάδα
+Αττική
+Πελοπόννησος
+Βόρειο Αιγαίο
+Νότιο Αιγαίο
+Κρήτη`.split("\n").sort()
+        console.log(regionsList);
+        for (let region of regionsList){
+            let option = document.createElement("option");
+            option.value = region;
+            option.textContent = region;
+            if (region=="Αττική") option.setAttribute("selected", "selected");
+            regionSelect.appendChild(option);
+        }
+
+        // ράβδοι κύλισης για επιλογή τιμών στην περιοχή "Γνώσεις"
+        const h = document.querySelector("#html");
+        const showH = document.querySelector("#showH");
+        h.addEventListener("input", (ev)=>{
+            showH.value = h.value;
+        })
+        const c = document.querySelector("#css");
+        const showC = document.querySelector("#showC");
+        c.addEventListener("input", (ev)=>{
+            showC.value = c.value;
+        })
+        const j = document.querySelector("#js");
+        const showJ = document.querySelector("#showJ");
+        j.addEventListener("input", (ev)=>{
+            showJ.value = j.value;
+        })
+        showValues()
+        function showValues(){
+            showH.value = h.value;
+            showC.value = c.value;
+            showJ.value = j.value;
+        }
+    </script>
+</body>
+</html>
