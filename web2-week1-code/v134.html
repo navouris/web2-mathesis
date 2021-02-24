@@ -75,7 +75,7 @@
             min="10000" max="99999"><br>
             <label for="region">Περιφέρεια:</label>
             <input list="regions" name="regions">
-            <datalist id="regions" autocomplete="off">
+            <datalist id="regions">
             <select name="region" id="region">
                 <!-- εδώ θα μπούν οι επιλογές που δημιουργούνται από τη JavaScript -->
             </select>
@@ -88,19 +88,19 @@
             <div id="knowledge">Σημειώστε τις γνώσεις σας (0=καθόλου, 5=άριστες)</div>
             <label for="html" class="range" > HTML5 </label>
             <input type="range" id="html" min="0" max="5" step="1" value="5" name="html">
-            <output id="showH"></output><br>
+            <output id="showH">5</output><br>
             <label for="css" class="range" > CSS3 </label>
             <input type="range" id="css" min="0" max="5" step="1" value="5" name="css">
-            <output id="showC"></output><br>
+            <output id="showC">5</output><br>
             <label for="js" class="range" > JavaScript </label>
             <input type="range" id="js" min="0" max="5" step="1" value="5" name="js">
-            <output id="showJ"></output><br>
+            <output id="showJ">5</output><br>
         </fieldset>
 
         <!-- Ενδιαφέροντα -->
         <fieldset>
             <legend>Ενδιαφέροντα</legend>
-            <label for="item1">Μού αρέσει....</label><br>
+            <label>Μού αρέσει....</label><br>
             <input type="checkbox" id="item1" name="item1" value="nature">
             <label for="item1">Η ζωή στη φύση </label><br>
             <input type="checkbox" id="item2" name="item2" value="reading">
