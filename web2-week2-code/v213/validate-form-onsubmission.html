@@ -58,7 +58,7 @@
             <label for="surname">*Επίθετο: </label>
             <input id="surname" type="text" name="surname" required
             placeholder="π.χ. Γεωργίου" size="30"><br>
-            <label for="emai">*Email: </label>
+            <label for="email">*Email: </label>
             <input id="email" type="email" name="email" required><br>
             <label for="age">Ηλικία: </label>
             <input id="age" type="number" name="age" min="17" max="117" readonly ><br>
@@ -84,7 +84,7 @@
             min="10000" max="99999"><br>
             <label for="region">*Περιφέρεια:</label>
             <input list="regions" name="regions" required>
-            <datalist id="regions" autocomplete="off">
+            <datalist id="regions">
             <select name="region" id="region">
                 <!-- εδώ θα μπούν οι επιλογές που δημιουργούνται από τη JavaScript -->
             </select>
@@ -109,7 +109,7 @@
         <!-- Ενδιαφέροντα -->
         <fieldset>
             <legend>Ενδιαφέροντα</legend>
-            <label for="item1">Μού αρέσει....</label><br>
+            <label>Μού αρέσει....</label><br>
             <input type="checkbox" id="item1" name="item1" value="nature">
             <label for="item1">Η ζωή στη φύση </label><br>
             <input type="checkbox" id="item2" name="item2" value="reading">
