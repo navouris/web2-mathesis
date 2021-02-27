@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .stacking-context {
+            position: absolute;
+            height: 8em;
+            width: 16em;
+            z-index: 0;
+        }
+        
+        .piso {
+            background-color: lightblue;
+        }
+        
+        .mesi {
+            background-color: rgb(138, 211, 128, 0.7);
+            top: 2em;
+            left: 4em;
+        }
+        
+        .brosta {
+            background-color: rgb(231, 233, 139, 0.7);
+            top: 4em;
+            left: 8em;
+            z-index: -1;
+        }
+        
+        .stacking-context>div {
+            position: absolute;
+            padding: 1.5em 2em;
+            opacity: 0.8;
+            border: 1px solid gray;
+        }
+        
+        .mesa-1 {
+            background-color: gold;
+            z-index: 1;
+        }
+        
+        .mesa-2 {
+            background-color: coral;
+            top: 1.5em;
+            left: 2.5em;
+            z-index: 2;
+        }
+        
+        .mesa-3 {
+            background-color: crimson;
+            top: 3em;
+            left: 4.5em;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="stacking-context piso">
+        <div class="mesa-1">ένα</div>
+        <div class="mesa-2">δύο</div>
+        <div class="mesa-3">τρία</div>
+    </div>
+    <div class="stacking-context mesi">
+        <div class="mesa-1">ένα</div>
+        <div class="mesa-2">δύο</div>
+        <div class="mesa-3">τρία</div>
+    </div>
+    <div class="stacking-context brosta">
+        <div class="mesa-1">ένα</div>
+        <div class="mesa-2">δύο</div>
+        <div class="mesa-3">τρία</div>
+    </div>
+
+</body>
+
+</html>
