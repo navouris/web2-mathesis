@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Τα άνθη της Ελλάδας</title>
+        <style>
+            .float {
+                float: left;
+                padding: 0.5em;
+            }
+
+            h3,
+            p {
+                border: 1px solid black;
+                background-color: aliceblue;
+            }
+
+            h3 {
+                /* clear: left; */
+            }
+
+            header {
+                background-color: pink;
+                border: 1px solid black;
+                display: flow-root;
+                /* overflow: auto; */
+            }
+
+            /* clear-fix hack */
+            /* header::after {
+                content: "";
+                display: block;
+                clear: both;
+            } */
+            .float-2 {
+                float: left;
+                padding: 0 0.5em;
+            }
+
+            .float-2+p {
+                display: flow-root;
+                /* width: 60%; */
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <header>
+            <img class="float" src="img/Άνθη_Βοκαμβίλιας_στο_χωριό_Κοίτα,_Μάνη.jpg" alt="">
+            <h3>Τα άνθη της Ελλάδας</h3>
+        </header>
+        <p> Nam egestas est nunc, cursus cursus velit maximus non. Pellentesque habitant morbi tristique senectus et
+            netus et malesuada fames ac turpis egestas. Aenean hendrerit tempus eros, non auctor metus consectetur quis.
+            Nam ut pulvinar justo. Morbi mattis in leo a placerat. Cras auctor pretium felis, eu porttitor leo commodo
+            sed. Curabitur gravida metus efficitur pharetra hendrerit. Duis leo arcu, convallis id pretium non, lacinia
+            id sem. Proin mi magna, ornare at tincidunt id, euismod eu nisi. Praesent tellus eros, venenatis in est sit
+            amet, dictum mattis mi. Vestibulum ac fringilla nisi. Aliquam commodo libero nisl, sit amet mollis sem
+            feugiat nec. </p>
+        <img class="float-2" src="img/180px-Άνθη_βιβούρνου_του_κοινού.jpeg" alt="">
+        <p> Curabitur non accumsan purus. Phasellus tempus pulvinar leo ut feugiat. Aliquam aliquam ac turpis at
+            suscipit. Duis leo neque, lacinia sit amet lorem auctor, vestibulum varius sapien. Suspendisse potenti. Nunc
+            cursus ligula rhoncus aliquet suscipit. Fusce congue metus et lorem dictum, vitae tincidunt velit pharetra.
+            Vestibulum ornare auctor magna, nec volutpat neque scelerisque venenatis. Aliquam eu nulla tempus, pharetra
+            est ac, aliquet nisl. Nam nec odio hendrerit, iaculis nisi eget, scelerisque turpis. Nunc cursus suscipit
+            ligula in congue. Praesent ac nisi in augue egestas molestie. Sed auctor non leo eget ullamcorper. </p>
+        <p> Sed nisl risus, scelerisque in eros quis, bibendum lobortis massa. Fusce maximus rutrum scelerisque. Duis
+            feugiat orci lacinia neque pharetra, a consequat lectus sodales. Vivamus rhoncus nulla quam, in iaculis nisi
+            sagittis ac. Etiam orci tortor, euismod quis varius in, porttitor a justo. Integer maximus, leo in tristique
+            aliquam, ligula felis pretium massa, at pulvinar mi quam in mi. Donec tincidunt scelerisque nisl at
+            fermentum. Nullam sed dolor sit amet ligula rhoncus ultrices nec in augue. Nam urna ante, consectetur id
+            ipsum eu, cursus accumsan nisi. Vestibulum quis sodales nisi. Sed vestibulum, est hendrerit tempor lacinia,
+            velit arcu suscipit eros, eget convallis dolor ligula vel tellus. </p>
+        <p> Aenean pellentesque, orci non egestas egestas, ex tortor finibus odio, ac convallis enim arcu sit amet
+            tortor. Aliquam volutpat justo lorem, quis iaculis tortor varius varius. Class aptent taciti sociosqu ad
+            litora torquent per conubia nostra, per inceptos himenaeos. Suspendisse luctus ex at eros sollicitudin
+            condimentum. Suspendisse tincidunt eros sit amet ex blandit placerat. Morbi at dapibus justo. Phasellus
+            elementum tortor quam, at tristique arcu elementum in. Nunc sodales eros sed ligula aliquam, nec bibendum
+            orci congue. Nullam aliquam at nulla nec tincidunt. Vivamus orci sem, euismod nec fermentum eu, efficitur a
+            ipsum. In porta orci ut risus consectetur, id venenatis nisi pretium. Maecenas efficitur sed leo quis
+            accumsan. </p>
+    </body>
+
+</html>
