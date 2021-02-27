@@ -1,8 +1,8 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>   
-    <meta charset="UTF-8">
-    <title>v135a</title>
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <title>v136a</title>
     <style>
         body {
             font-family: Arial, Helvetica, sans-serif;
@@ -16,7 +16,7 @@
         input {
             width: 100%;
             padding: 1em;
-            border: 1px sold #bbbbbb;
+            border: 1px solid #bbbbbb;
             border-radius: 5px;
             box-sizing: border-box;
             margin-top: 1em;
@@ -31,25 +31,25 @@
             color: white;
         }
         /* pallette= https://colorhunt.co/palette/220246 */
-    </style>
-</head>
-<body>   
+    </style>
+</head>
+<body>
     <div class="form">
-        <form name="theForm" action="" method="post" onsubmit = "return(validate());">
+        <form name="theForm" method="post" onsubmit = "return(validate());">
             <fieldset>
                 <legend>εγγραφή χρήστη</legend>       
                 <label for="email">Ταυτότητα χρήστη (email):</label>
                 <input type="email" id="email" name="email" 
                 placeholder="δώστε το email σας" required><br>
-                <label for="passw1">Κωδικός πρόσβασης:</label>
+                <label for="pass1">Κωδικός πρόσβασης:</label>
                 <input type="password" id="pass1" name="password1" 
                 placeholder="κωδικός 5 τουλάχιστον χαρακτήρων με αριθμούς και γράμματα" required><br>
-                <label for="passw2">Επιβεβαίωση κωδικού:</label>
+                <label for="pass2">Επιβεβαίωση κωδικού:</label>
                 <input type="password" id="pass2" name="password2" 
                 placeholder="επαναλάβατε τον κωδικό που δώσατε πιο πάνω" required><br>
                 <input type="submit" value='υποβολή'>
             </fieldset>  
-        </form>
+        </form>
     </div>
     <script>
         function validate(){

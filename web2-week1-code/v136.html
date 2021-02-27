@@ -1,7 +1,7 @@
-<!DOCTYPE html>
-<html lang="el">
-<head>   
-    <meta charset="UTF-8">
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
     <title>v135</title>
     <style>
         body {
@@ -16,7 +16,7 @@
         input {
             width: 100%;
             padding: 1em;
-            border: 1px sold #bbbbbb;
+            border: 1px solid #bbbbbb;
             border-radius: 5px;
             box-sizing: border-box;
             margin-top: 1em;
@@ -31,27 +31,28 @@
             color: white;
         }
         /* pallette= https://colorhunt.co/palette/220246 */
-    </style>
-</head>
-<body>   
-    <form onsubmit="return(validate());">
+    </style>
+</head>
+<body>
+    <form onsubmit="return(validate());">
         <fieldset>
             <legend>εγγραφή χρήστη</legend>       
             <label for="email">Ταυτότητα χρήστη (email):</label>
             <input type="email" id="email" name="email" required
-                autocomplete="new-password"
                 placeholder="δώστε το email σας" ><br>
             <label for="pass1">Κωδικός πρόσβασης:</label>
             <input type="password" id="pass1" name="pass1"
                 pattern="^(?=[^0-9]*[0-9])(?=[^a-zA-Z]*[a-zA-Z]).{5,}$" 
-                placeholder="κωδικός 5 τουλάχιστον χαρακτήρων με αριθμούς και γράμματα" required><br>
+                placeholder="κωδικός 5 τουλάχιστον χαρακτήρων με αριθμούς και γράμματα" 
+                   autocomplete="new-password" required><br>
             <label for="pass2">Επιβεβαίωση κωδικού:</label>
             <input type="password" id="pass2" name="pass2"
                 pattern="^(?=[^0-9]*[0-9])(?=[^a-zA-Z]*[a-zA-Z]).{5,}$" 
-                placeholder="επαναλάβατε τον κωδικό που δώσατε πιο πάνω" required><br>
+                placeholder="επαναλάβατε τον κωδικό που δώσατε πιο πάνω" 
+                   autocomplete="new-password" required><br>
             <input type="submit" value='υποβολή'>
         </fieldset>  
-    </form>
+    </form>
     <script>
         function validate(){
             if (document.querySelector("#pass1").value ===
