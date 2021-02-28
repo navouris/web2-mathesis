@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Grid example</title>
+        <style>
+            .container {
+                display: grid;
+                grid-template-areas:
+                    "pa pm pd"
+                    "ma ma ma"
+                    "ka km kd";
+                grid-auto-rows: 1fr;
+                grid-auto-columns: 1fr;
+                background-color: aliceblue;
+                border: 2px dotted black;
+                padding: 0.5em;
+                height: 90vh;
+                justify-items: center;
+                align-items: center;
+            }
+
+            .container>div {
+                width: 4em;
+                height: 4em;
+            }
+
+            #item1 {
+                background-color: lightskyblue;
+            }
+
+            #item2 {
+                background-color: lightpink;
+                grid-area: ma;
+                justify-self: flex-start;
+                align-self: flex-end;
+            }
+
+            #item3 {
+                background-color: mediumorchid;
+            }
+
+            #item4 {
+                background-color: orange;
+            }
+
+            #item5 {
+                background-color: orangered;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <div class="container">
+            <div id="item1">1</div>
+            <div id="item2">2</div>
+            <div id="item3">3</div>
+            <div id="item4">4</div>
+            <div id="item5">5</div>
+        </div>
+    </body>
+
+</html>

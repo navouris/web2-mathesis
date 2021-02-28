@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <title>Τα Άγραφα</title>
+    <!-- <link href="styles.css" rel="stylesheet" type="text/css"> -->
+    <style>
+      html {
+        font-family: sans-serif;
+        color: #333;
+        background-color: #fff;
+      }
+
+      /* grid layout */
+      .grid {
+        margin: 0 auto;
+        padding: 0 20px;
+        max-width: 980px;
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        gap: 20px;
+      }
+
+      /* page topic */
+      .topic {
+        grid-column: 1/3;
+        justify-self: start;
+        font-size: 2em;
+        padding: 1em 0;
+        /*  */
+        /* margin: 0 auto; */
+        /* max-width: 980px; */
+      }
+
+      /* navigation bar */
+      nav {
+        grid-column: 1/3;
+        background-color: #000;
+        padding: .5em 1em;
+        font-size: 1.2em;
+        line-height: 2;
+        position: sticky;
+        top: 0;
+      }
+
+      nav ul {
+        padding: 0;
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+        max-width: 980px;
+        margin: 0 auto;
+      }
+
+      nav a {
+        color: #fff;
+        padding: 0 0.5em;
+        text-decoration: none;
+      }
+
+      /* feature-image */
+      .feature-image {
+        min-width: 250px;
+        width: 50%;
+        float: left;
+        margin: 0 1em 0 0;
+      }
+
+      /* main article */
+      h1 {
+        text-transform: uppercase;
+      }
+
+      article>p {
+        text-align: justify;
+        /* hyphens: auto; */
+        line-height: 1.2;
+      }
+
+      /* photos */
+      .photos img {
+        width: 100%;
+      }
+
+      .photos {
+        list-style: none;
+        padding: 0;
+      }
+
+      .photos {
+        display: flex;
+        flex-wrap: wrap;
+        /* gap: 2%; */
+        margin: 0;
+        padding: 0;
+        gap: 0.5em;
+        /* line-height: 0; */
+      }
+
+      .photos li {
+        /* flex-basis: 48%; */
+        /* flex-grow: 1; */
+        flex: 1 0 48%;
+        /* flex: 1 1 48%; */
+        /* flex-basis: 48%;
+        flex-grow: 1; */
+      }
+
+    </style>
+  </head>
+
+  <body class="grid">
+    <div class="topic"> Ορειβασία </div>
+    <nav>
+      <ul>
+        <li>
+          <a href="">Πληροφορίες</a>
+        </li>
+        <li>
+          <a href="">Διαδρομές</a>
+        </li>
+        <li>
+          <a href="">Κορυφές</a>
+        </li>
+        <li>
+          <a href="">Αξιοθέατα</a>
+        </li>
+        <li>
+          <a href="">Ιστορικά στοιχεία</a>
+        </li>
+      </ul>
+    </nav>
+    <article>
+      <h3> Ευρυτανία </h3>
+      <h1> Άγραφα </h1>
+      <h2> Στο κέντρο της Ελλάδας </h2>
+      <img src="images/agrafa-1.jpg" alt="placeholder" class="feature-image
+        ">
+      <p> Praesent consectetur odio lacus, non molestie elit ultrices a. Integer ornare iaculis lorem. Lorem ipsum dolor
+        sit amet, consectetur adipiscing elit. Aliquam facilisis in ex ut vestibulum. Donec et est quis lacus vulputate
+        lobortis. Pellentesque nec tellus vel ipsum accumsan suscipit sit amet ut sapien. Nullam euismod, eros at
+        accumsan interdum, ipsum ipsum egestas nibh, et vulputate nunc nisi et ex. Donec condimentum facilisis quam.
+      </p>
+      <p> Nam egestas est nunc, cursus cursus velit maximus non. Pellentesque habitant morbi tristique senectus et netus
+        et malesuada fames ac turpis egestas. Aenean hendrerit tempus eros, non auctor metus consectetur quis. Nam ut
+        pulvinar justo. Morbi mattis in leo a placerat. Cras auctor pretium felis, eu porttitor leo commodo sed.
+        Curabitur gravida metus efficitur pharetra hendrerit. Duis leo arcu, convallis id pretium non, lacinia id sem.
+        Proin mi magna, ornare at tincidunt id, euismod eu nisi. Praesent tellus eros, venenatis in est sit amet, dictum
+        mattis mi. Vestibulum ac fringilla nisi. Aliquam commodo libero nisl, sit amet mollis sem feugiat nec. </p>
+      <p> Curabitur non accumsan purus. Phasellus tempus pulvinar leo ut feugiat. Aliquam aliquam ac turpis at suscipit.
+        Duis leo neque, lacinia sit amet lorem auctor, vestibulum varius sapien. Suspendisse potenti. Nunc cursus ligula
+        rhoncus aliquet suscipit. Fusce congue metus et lorem dictum, vitae tincidunt velit pharetra. Vestibulum ornare
+        auctor magna, nec volutpat neque scelerisque venenatis. Aliquam eu nulla tempus, pharetra est ac, aliquet nisl.
+        Nam nec odio hendrerit, iaculis nisi eget, scelerisque turpis. Nunc cursus suscipit ligula in congue. Praesent
+        ac nisi in augue egestas molestie. Sed auctor non leo eget ullamcorper. </p>
+      <p> Sed nisl risus, scelerisque in eros quis, bibendum lobortis massa. Fusce maximus rutrum scelerisque. Duis
+        feugiat orci lacinia neque pharetra, a consequat lectus sodales. Vivamus rhoncus nulla quam, in iaculis nisi
+        sagittis ac. Etiam orci tortor, euismod quis varius in, porttitor a justo. Integer maximus, leo in tristique
+        aliquam, ligula felis pretium massa, at pulvinar mi quam in mi. Donec tincidunt scelerisque nisl at fermentum.
+        Nullam sed dolor sit amet ligula rhoncus ultrices nec in augue. Nam urna ante, consectetur id ipsum eu, cursus
+        accumsan nisi. Vestibulum quis sodales nisi. Sed vestibulum, est hendrerit tempor lacinia, velit arcu suscipit
+        eros, eget convallis dolor ligula vel tellus. </p>
+      <p> Aenean pellentesque, orci non egestas egestas, ex tortor finibus odio, ac convallis enim arcu sit amet tortor.
+        Aliquam volutpat justo lorem, quis iaculis tortor varius varius. Class aptent taciti sociosqu ad litora torquent
+        per conubia nostra, per inceptos himenaeos. Suspendisse luctus ex at eros sollicitudin condimentum. Suspendisse
+        tincidunt eros sit amet ex blandit placerat. Morbi at dapibus justo. Phasellus elementum tortor quam, at
+        tristique arcu elementum in. Nunc sodales eros sed ligula aliquam, nec bibendum orci congue. Nullam aliquam at
+        nulla nec tincidunt. Vivamus orci sem, euismod nec fermentum eu, efficitur a ipsum. In porta orci ut risus
+        consectetur, id venenatis nisi pretium. Maecenas efficitur sed leo quis accumsan. </p>
+    </article>
+    <aside>
+      <h2> Φωτογραφίες </h2>
+      <ul class="photos">
+        <li>
+          <img src="images/agrafa-2.jpg" alt="placeholder">
+        </li>
+        <li>
+          <img src="images/agrafa-3.jpg" alt="placeholder">
+        </li>
+        <li>
+          <img src="images/agrafa-4.jpg" alt="placeholder">
+        </li>
+        <li>
+          <img src="images/agrafa-5.jpg" alt="placeholder">
+        </li>
+        <li>
+          <img src="images/agrafa-6.jpg" alt="placeholder">
+        </li>
+        <li>
+          <img src="images/agrafa-7.jpg" alt="placeholder">
+        </li>
+        <li>
+          <img src="images/agrafa-8.jpg" alt="placeholder">
+        </li>
+      </ul>
+    </aside>
+  </body>
+
+</html>

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Το μικρό βιβλιοπωλείο</title>
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+        <style>
+            :root {
+                font-family: sans-serif;
+            }
+
+            ul {
+                display: flex;
+                background-color: lightgray;
+                list-style: none;
+                width: 90%;
+                margin: 0 auto;
+                padding: 0;
+            }
+
+            li {
+                background-color: slategray;
+                color: azure;
+                padding: 1em;
+                transition: background-color;
+                transition-duration: 0.25s;
+                display: flex;
+                align-items: center;
+                flex: 1 1 auto;
+                white-space: nowrap;
+                box-sizing: border-box;
+            }
+
+            li:nth-child(1) {
+                background-color: slateblue;
+                flex: 0;
+            }
+
+            li:hover {
+                background-color: indigo;
+            }
+
+            .search-field {
+                flex: 1;
+            }
+
+            @media (max-width: 1000px) {
+                body {
+                    background-color: lightgray;
+                }
+
+                ul {
+                    flex-wrap: wrap;
+                }
+
+                li:last-child {
+                    flex: 1 0 100%;
+                }
+            }
+
+            @media (max-width: 600px) {
+                body {
+                    background-color: gray;
+                }
+
+                li:nth-child(n+2) {
+                    flex: 1 1 48%;
+                }
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <nav>
+            <ul>
+                <li>Το βιβλιοπωλείο μας</li>
+                <li>Κατηγορίες</li>
+                <li>Νέες εκδόσεις</li>
+                <li>Ευπώλητα</li>
+                <li>Επικοινωνία</li>
+                <li><input class="search-field" type="search" placeholder="Αναζήτηση"><i
+                        class="material-icons">search</i></li>
+            </ul>
+        </nav>
+    </body>
+
+</html>
