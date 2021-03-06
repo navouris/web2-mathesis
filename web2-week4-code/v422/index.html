@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
+        <title>Εγγραφή στο θερινό σχολείο</title>
+        <style>
+            legend {
+                float: none;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <form action="#" class="myForm">
+            <div class="container">
+                <div class="row mb-4">
+                    <div class="col">
+                        <h4>Εγγραφή στο θερινό σχολείο</h4>
+                    </div>
+                </div>
+                <fieldset class="border p-3">
+                    <legend class="w-auto px-3">Προσωπικά στοιχεία</legend>
+                    <!-- Όνομα -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2"><label for="inputName">Όνομα</label></div>
+                        <div class="col-md-5 col-sm-10 position-relative">
+                            <input type="text" class="form-control" name="inputName" placeholder="π.χ. Μήτσος"
+                                id="inputName" aria-describedby="inputNameHelp">
+                            <div class="invalid-tooltip">Είναι υποχρεωτικό!</div>
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputNameHelp">Δώστε το όνομά σας</span>
+                        </div>
+                    </div>
+                    <!-- Επώνυμο -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2"><label for="inputSurname">Επώνυμο</label></div>
+                        <div class="col-md-5 col-sm-10">
+                            <input type="text" class="form-control" name="inputSurname" placeholder="π.χ. Μήτσου"
+                                id="inputSurname" aria-describedby="inputSurnameHelp">
+                            <div class="valid-feedback">Μια χαρά!</div>
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputSurnameHelp">Δώστε το επώνυμό σας</span>
+                        </div>
+                    </div>
+                    <!-- Mail -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2"><label for="inputMail">Μέιλ</label></div>
+                        <div class="col-md-5 col-sm-10">
+                            <div class="input-group">
+                                <span class="input-group-text">@</span>
+                                <input type="email" class="form-control" name="inputMail"
+                                    placeholder="π.χ. mitsos@mitsou.gr" id="inputMail" aria-describedby="inputMailHelp">
+                                <div class="valid-tooltip">Μια χαρά!</div>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputMailHelp">Δώστε το μέιλ σας</span>
+                        </div>
+                    </div>
+                    <!-- Ηλικία -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2"><label for="inputAge">Ηλικία</label></div>
+                        <div class="col-md-5 col-sm-10">
+                            <input type="number" class="form-control" name="inputAge" placeholder="π.χ. 45" min="18"
+                                max="100" id="inputAge" aria-describedby="inputAgeHelp">
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputAgeHelp">Δώστε την ηλικία σας</span>
+                        </div>
+                    </div>
+                    <!-- Ημ. γέννησης -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2"><label for="inputBdateHelp">Ημ. γέννησης</label></div>
+                        <div class="col-md-5 col-sm-10">
+                            <input type="date" class="form-control" name="inputBdateHelp" max="2003-01-01"
+                                id="inputBdateHelp" aria-describedby="inputBdateHelpHelp">
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputBdateHelpHelp">Δώστε την ημ. γέννησής σας</span>
+                        </div>
+                    </div>
+                    <!-- Φύλο -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2" aria-describedby="inputSexHelp">Φύλο</div>
+                        <div class="col-md-5 col-sm-10">
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="inputSex" id="inputSexMale"
+                                    value="male">
+                                <label for="inputSexMale">Άνδρας</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input type="radio" class="form-check-input" name="inputSex" id="inputSexFemale"
+                                    value="female">
+                                <label for="inputSexFemale">Γυναίκα</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputSexHelp">Δώστε το φύλο σας</span>
+                        </div>
+                    </div>
+                    <!-- Φύλο2 -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2" aria-describedby="inputSexHelp2">Φύλο2</div>
+                        <div class="col-md-5 col-sm-10">
+                            <div class="form-check form-switch">
+                                <input type="radio" class="form-check-input" name="inputSex" id="inputSexMale2"
+                                    value="male">
+                                <label for="inputSexMale2">Άνδρας</label>
+                            </div>
+                            <div class="form-check form-switch">
+                                <input type="radio" class="form-check-input" name="inputSex" id="inputSexFemale2"
+                                    value="female">
+                                <label for="inputSexFemale2">Γυναίκα</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputSexHelp2">Δώστε το φύλο σας</span>
+                        </div>
+                    </div>
+                    <!-- Φύλο3 -->
+                    <div class="row mb-3 align-items-center">
+                        <div class="col-md-3 col-sm-2" aria-describedby="inputSexHelp3">Φύλο3</div>
+                        <div class="col-md-5 col-sm-10">
+                            <div class="form-check ">
+                                <input type="radio" class="btn-check" name="inputSex" id="inputSexMale3" value="male">
+                                <label class="btn btn-outline-primary" for="inputSexMale3">Άνδρας</label>
+                            </div>
+                            <div class="form-check ">
+                                <input type="radio" class="btn-check" name="inputSex" id="inputSexFemale3"
+                                    value="female">
+                                <label class="btn btn-outline-primary" for="inputSexFemale3">Γυναίκα</label>
+                            </div>
+                        </div>
+                        <div class="col-md-4 offset-md-0 offset-sm-2">
+                            <span class="form-text" id="inputSexHelp3">Δώστε το φύλο σας</span>
+                        </div>
+                    </div>
+                </fieldset>
+                <div class="row mb-3 align-items-center mt-3">
+                    <div class="col"><button type="submit" class="btn btn-primary">Υποβολή</button></div>
+                </div>
+            </div>
+        </form>
+        <!-- Optional JavaScript; choose one of the two! -->
+        <!-- Option 1: Bootstrap Bundle with Popper -->
+        <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW"
+            crossorigin="anonymous"></script> -->
+        <!-- Option 2: Separate Popper and Bootstrap JS -->
+        <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js" integrity="sha384-q2kxQ16AaE6UbzuKqyBE9/u/KzioAlnx2maXQHiDX9d4/zp8Ok3f+M7DPm+Ib6IU" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.min.js" integrity="sha384-pQQkAEnwaBkjpqZ8RU1fF1AKtTcHJwFl3pblpTlHXybJjHpMYo79HY3hIi4NKxyj" crossorigin="anonymous"></script>
+    -->
+    </body>
+
+</html>
