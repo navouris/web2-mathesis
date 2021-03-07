@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- Bootstrap CSS -->
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet"
+            integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+        <title>My bike</title>
+        <style>
+            body {
+                background-color: #eee;
+            }
+
+            nav {
+                background-color: #bbb;
+            }
+
+        </style>
+    </head>
+
+    <body>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-md navbar-light ">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="#"><img src="img/man-riding-bicycle.svg" width="70px" alt=""></a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <form class="d-flex">
+                        <input class="form-control me-2" type="search" placeholder="Αναζήτηση" aria-label="Αναζήτηση">
+                        <button class="btn btn-danger" type="submit">Αναζήτηση</button>
+                    </form>
+                    <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Επικοινωνία</a>
+                        </li>
+                        <li class="nav-item dropdown dropstart">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                                data-bs-toggle="dropdown" aria-expanded="false"> Ελληνικά </a>
+                            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <li><a class="dropdown-item" href="#">Αγγλικά</a></li>
+                                <li><a class="dropdown-item" href="#">Γαλλικά</a></li>
+                                <li>
+                                    <hr class="dropdown-divider">
+                                </li>
+                                <li><a class="dropdown-item" href="#">Ιταλικά (αυτόματη μετάφραση)</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- !navbar -->
+        <div class="container">
+            <!-- slogan -->
+            <div class="row mt-5 d-flex align-items-center">
+                <div class="col-12 col-md-6 order-md-last d-flex justify-content-center"><img
+                        src="img/bicycle-basket-with-flowers.png" class="w-50" alt=""></div>
+                <div class="col">
+                    <p class="text-center"> Η μεγαλύτερη αγορά για καινούρια και μεταχειρισμένα ποδήλατα στην Ελλάδα.
+                    </p>
+                </div>
+            </div>
+            <!-- !slogan -->
+            <!-- buttons -->
+            <div class="row mt-5 justify-content-evenly">
+                <div class="col-auto"><button type="button" class="btn btn-light">Αγορά</button>
+                </div>
+                <div class="w-100 d-md-none"></div>
+                <div class="col-auto mt-md-0 mt-4"><button type="button" class="btn btn-light">Πώληση</button>
+                </div>
+            </div>
+            <!-- !buttons -->
+            <!-- carousel -->
+            <!-- Σημείωση: τα παραδείγματα στο βίντεο είναι ελαφρώς διαφορετικά. Στο βίντεο παίρνουμε κώδικα από παραδείγματα που δίνει η τεκμηρίωση της Bootstrap. Τώρα όμως αυτά στην online τεκμηρίωση είναι λίγο διαφορετικά από ό,τι όταν καταγράφηκε το βίντεο. Η ουσία δεν αλλάζει, η λογική είναι η ίδια. Αν δεν δουλεύει κάτι, κοιτάζουμε τα id να συμφωνούν μεταξύ τους και να έχουμε βάλει τον κώδικα στο σωστό σημείο. -->
+            <div class="row justify-content-center mt-5">
+                <div class="col col-sm-10 col-md-8 col-6 pt-2 bg-light">
+                    <h6> Τελευταίες αγγελίες </h6>
+                </div>
+            </div>
+            <div class="row justify-content-center">
+                <div class="col col-sm-10 col-md-8 col-6 pb-3  bg-light">
+                    <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="0"
+                                class="active" aria-current="true" aria-label="Slide 1"></button>
+                            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="1"
+                                aria-label="Slide 2"></button>
+                            <button type="button" data-bs-target="#carouselExampleSlidesOnly" data-bs-slide-to="2"
+                                aria-label="Slide 3"></button>
+                        </div>
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/Bike_(3586544974).jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/Rennrad_Racing_Bicycle.jpg" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/Shimanami-expressway_and_my_bike.jpg" class="d-block w-100" alt="...">
+                            </div>
+                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleSlidesOnly" role="button"
+                            data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleSlidesOnly" role="button"
+                            data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <!-- !carousel -->
+            <!-- cards -->
+            <div class="row my-5">
+                <div class="col-lg mb-lg-0 mb-2 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" class="link-danger">Συμβουλές</a></h5>
+                            <p class="card-text">Με ανάρτηση ή χωρίς; Μπορούμε να λύσουμε όλες σας τις απορίες.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg mb-lg-0 mb-2 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" class="link-danger">Προσαρμόστε το</a></h5>
+                            <p class="card-text">Πως να φτιάξετε το ποδήλατο που σας ταιριάζει.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg mb-lg-0 mb-2 d-flex justify-content-center">
+                    <div class="card" style="width: 18rem;">
+                        <div class="card-body">
+                            <h5 class="card-title"><a href="#" class="link-danger">Δοκιμές</a></h5>
+                            <p class="card-text">Διαβάστε τις γνώμες έμπειρων ποδηλατών.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- !cards -->
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js"
+            integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0"
+            crossorigin="anonymous"></script>
+    </body>
+
+</html>
