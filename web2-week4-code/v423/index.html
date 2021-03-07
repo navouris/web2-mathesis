@@ -157,7 +157,6 @@
                 myForm.addEventListener('submit', (event) => {
                     if (!myForm.checkValidity()) {
                         event.preventDefault()
-                        event.stopPropagation()
                     }
 
                     myForm.classList.add('was-validated')
