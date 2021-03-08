@@ -151,18 +151,16 @@
             </div>
         </form>
         <script>
-            document.addEventListener('DOMContentLoaded', (event) => {
-                const myForm = document.querySelector('.myForm')
+            const myForm = document.querySelector('.myForm')
 
-                myForm.addEventListener('submit', (event) => {
-                    if (!myForm.checkValidity()) {
-                        event.preventDefault()
-                    }
+            myForm.addEventListener('submit', (event) => {
+                if (!myForm.checkValidity()) {
+                    event.preventDefault()
+                }
 
-                    myForm.classList.add('was-validated')
-                })
-
+                myForm.classList.add('was-validated')
             })
+
         </script>
         <!-- Optional JavaScript; choose one of the two! -->
         <!-- Option 1: Bootstrap Bundle with Popper -->
