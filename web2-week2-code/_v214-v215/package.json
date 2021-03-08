@@ -1,0 +1,15 @@
+{
+  "name": "v214-v215",
+  "version": "1.0.0",
+  "description": "a json package",
+  "main": "index1.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.1"
+  }
+}

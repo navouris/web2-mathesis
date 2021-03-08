@@ -1,7 +1,59 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sent from server (v214)</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label, input, output, #knowledge, legend, select, textarea, #message{
+            margin: 0.5em;
+            padding: 0.2em;
+            font-size: 1em;
+            border-radius: 5px;
+        }
+        output {
+            border: 1px solid black;
+        }
+        label.range {
+            display: inline-block;
+            width: 5em;
+            text-align: right;
+        }
+        fieldset {
+            margin-top: 2em;
+        }
+        legend {
+            background-color: #000;
+            color: #ffffff;
+        }
+        input[type=submit] {
+            background-color: #00bb00;
+        }
+        textarea {
+            background-color: #fafafa;
+            /* resize: none; */
+        }
+        #charsLeft {
+            color: #ababab;
+            font-size: 0.8em;
+            border: none;
+        }
+        #message {
+            border: none;
+        }
+        #age {
+            background-color:#efefef;
+        }
+    </style>
+</head>
+<body>
     <h1> Στείλτε τα στοιχεία σας για το θερινό σχολείο </h1>
     <h3> Συμπληρώστε τη φόρμα </h3>
-    <form id="myForm" method="post" enctype="multipart/form-data" onsubmit="return(validate());">
-        <output id="message" style={{msgStyle}}>{{msg}}</output>
+    <form id="myForm" method="post" onsubmit="return(validate());">
+        <output id="message"></output>
         <!-- προσωπικά στοιχεία -->
         <fieldset> 
             <legend>Προσωπικά στοιχεία</legend>
@@ -11,7 +63,7 @@
             <label for="surname">*Επίθετο: </label>
             <input id="surname" type="text" name="surname" required
             placeholder="π.χ. Γεωργίου" size="30"><br>
-            <label for="emai">*Email: </label>
+            <label for="email">*Email: </label>
             <input id="email" type="email" name="email" required><br>
             <label for="age">Ηλικία: </label>
             <input id="age" type="number" name="age" min="17" max="117" readonly ><br>
@@ -26,19 +78,22 @@
         <!-- κατοικία -->
         <fieldset>
             <legend>Κατοικία</legend>
-            <label for="address">Διεύθυνση:</label>
-            <input id="address" type="text" size="25"
+            <label for="address">*Διεύθυνση:</label>
+            <input id="address" type="text" size="25" required
             name="address" placeholder="πχ. Δήλου 12"><br>
-            <label for="city">Πόλη:</label>
-            <input id="city" type="text" name="city"
+            <label for="city">*Πόλη:</label>
+            <input id="city" type="text" name="city" required
             placeholder="πχ. Πάτρα" size="15">
             <label for="postcode">Ταχ.Κωδ.:</label>
             <input id="postcode" type="number" name="postcode" 
             min="10000" max="99999"><br>
             <label for="region">*Περιφέρεια:</label>
-            <select name="region" id="region" required>
+            <input list="regions" name="regions" required>
+            <datalist id="regions">
+            <select name="region" id="region">
                 <!-- εδώ θα μπούν οι επιλογές που δημιουργούνται από τη JavaScript -->
             </select>
+            </datalist>
         </fieldset>
 
         <!-- Γνώσεις -->
@@ -47,24 +102,25 @@
             <div id="knowledge">Σημειώστε τις γνώσεις σας (0=καθόλου, 5=άριστες)</div>
             <label for="html" class="range" > HTML5 </label>
             <input type="range" id="html" min="0" max="5" step="1" value="5" name="html">
-            <output id="showH"></output><br>
+            <output id="showH">5</output><br>
             <label for="css" class="range" > CSS3 </label>
             <input type="range" id="css" min="0" max="5" step="1" value="5" name="css">
-            <output id="showC"></output><br>
+            <output id="showC">5</output><br>
             <label for="js" class="range" > JavaScript </label>
             <input type="range" id="js" min="0" max="5" step="1" value="5" name="js">
-            <output id="showJ"></output><br>
+            <output id="showJ">5</output><br>
         </fieldset>
 
         <!-- Ενδιαφέροντα -->
         <fieldset>
             <legend>Ενδιαφέροντα</legend>
-            <input type="checkbox" id="interest1" name="interest1" value="nature">
-            <label for="interest1">Η ζωή στη φύση </label><br>
-            <input type="checkbox" id="interest2" name="interest2" value="reading">
-            <label for="interest2">Το διάβασμα </label><br>
-            <input type="checkbox" id="interest3" name="interest3" value="sports">
-            <label for="interest3"> Ο αθλητισμός </label><br>
+            <label>Μού αρέσει....</label><br>
+            <input type="checkbox" id="item1" name="item1" value="nature">
+            <label for="item1">Η ζωή στη φύση </label><br>
+            <input type="checkbox" id="item2" name="item2" value="reading">
+            <label for="item2"> Το διάβασμα </label><br>
+            <input type="checkbox" id="item3" name="item3" value="sports">
+            <label for="item3">Ο αθλητισμός </label><br> 
         </fieldset>
 
         <!-- Σύντομη δήλωση -->
@@ -76,12 +132,6 @@
             <output id="charsLeft"></output>
         </fieldset>
 
-        <!-- Βιογραφικό σημείωμα -->
-        <fieldset>
-            <legend>Βιογραφικό σημείωμα (αρχείο .pdf) ...</legend>
-            <input type="file" id="cv" accept=".pdf" name="cv">
-        </fieldset>
-
         <input type= "submit" value="Υποβολή στοιχείων"><br>
     </form>
 
@@ -89,14 +139,15 @@
         function validate(){
             if (document.querySelector("#age").value<18){
                 document.querySelector("#message").innerHTML=
-                "ΠΡΟΣΟΧΗ: Το βιογραφικό δεν υποβλήθηκε.<br>Δεν είναι επιτρεπτή η υποβολή βιογραφικού από άτομο ηλικίας μικρότερης των 18 ετών";
+                "Το βιογραφικό δεν υποβλήθηκε.<br>Δεν είναι επιτρεπτή η υποβολή βιογραφικού απ΄άτομο ηλικίας μικρότερης των 18 ετών";
                 document.querySelector("#message").style.color="#ef0000";
                 document.querySelector("#message").autofocus = "on";
-                document.querySelector("#age").style.backgroundColor="#efefef";
+                document.querySelector("#myForm").reset();
                 return false;
             }
             return true;
         }
+
 
         // υπολογισμός ηλικίας - το στοιχείο date επιστρέφει yyyy-mm-dd
         document.querySelector("#date").addEventListener("change", (e)=>{
@@ -114,8 +165,8 @@
             if (age<18){
                 document.querySelector("#age").style.backgroundColor = "#bf0f0f";
                 alert("Δεν επιτρέπεται υποβολή της φόρμας για ηλικία μικρότερη των 18");
-            }
-            else document.querySelector("#age").style.backgroundColor="white";
+            } 
+            else document.querySelector("#age").style.backgroundColor = "white";
         })
 
         //μέτρησε χαρακτήρες που απομένουν
@@ -166,10 +217,10 @@
         j.addEventListener("input", (ev)=>{
             showJ.value = j.value;
         })
-        showValues()
-        function showValues(){
-            showH.value = h.value;
-            showC.value = c.value;
-            showJ.value = j.value;
-        }
+        showH.value = h.value;
+        showC.value = c.value;
+        showJ.value = j.value;
+ 
     </script>
+</body>
+</html>

@@ -1,7 +1,60 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v142</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        label, input, output, #knowledge, legend, select, textarea, #message{
+            margin: 0.5em;
+            padding: 0.2em;
+            font-size: 1em;
+            font-family: Arial, Helvetica, sans-serif;
+            border-radius: 5px;
+        }
+        output {
+            border: 1px solid black;
+        }
+        label.range {
+            display: inline-block;
+            width: 5em;
+            text-align: right;
+        }
+        fieldset {
+            margin-top: 2em;
+        }
+        legend {
+            background-color: #000;
+            color: #ffffff;
+        }
+        input[type=submit] {
+            background-color: #00bb00;
+        }
+        textarea {
+            background-color: #fafafa;
+            /* resize: none; */
+        }
+        #charsLeft {
+            color: #ababab;
+            font-size: 0.8em;
+            border: none;
+        }
+        #message {
+            border: none;
+        }
+        #age {
+            background-color:#efefef;
+        }
+    </style>
+</head>
+<body>
     <h1> Στείλτε τα στοιχεία σας για το θερινό σχολείο </h1>
     <h3> Συμπληρώστε τη φόρμα </h3>
-    <form id="myForm" method="post" enctype="multipart/form-data" onsubmit="return(validate());">
-        <output id="message" style={{msgStyle}}>{{msg}}</output>
+    <form id="myForm" method="post" onsubmit="return(validate());">
+        <output id="message"></output>
         <!-- προσωπικά στοιχεία -->
         <fieldset> 
             <legend>Προσωπικά στοιχεία</legend>
@@ -11,7 +64,7 @@
             <label for="surname">*Επίθετο: </label>
             <input id="surname" type="text" name="surname" required
             placeholder="π.χ. Γεωργίου" size="30"><br>
-            <label for="emai">*Email: </label>
+            <label for="email">*Email: </label>
             <input id="email" type="email" name="email" required><br>
             <label for="age">Ηλικία: </label>
             <input id="age" type="number" name="age" min="17" max="117" readonly ><br>
@@ -47,13 +100,13 @@
             <div id="knowledge">Σημειώστε τις γνώσεις σας (0=καθόλου, 5=άριστες)</div>
             <label for="html" class="range" > HTML5 </label>
             <input type="range" id="html" min="0" max="5" step="1" value="5" name="html">
-            <output id="showH"></output><br>
+            <output id="showH">5</output><br>
             <label for="css" class="range" > CSS3 </label>
             <input type="range" id="css" min="0" max="5" step="1" value="5" name="css">
-            <output id="showC"></output><br>
+            <output id="showC">5</output><br>
             <label for="js" class="range" > JavaScript </label>
             <input type="range" id="js" min="0" max="5" step="1" value="5" name="js">
-            <output id="showJ"></output><br>
+            <output id="showJ">5</output><br>
         </fieldset>
 
         <!-- Ενδιαφέροντα -->
@@ -74,12 +127,6 @@
             placeholder="γράψτε δύο λόγια για σάς, (μέγιστο 500 χαρακτήρες)" 
             cols="50" rows="10" maxlength="500"></textarea><br>
             <output id="charsLeft"></output>
-        </fieldset>
-
-        <!-- Βιογραφικό σημείωμα -->
-        <fieldset>
-            <legend>Βιογραφικό σημείωμα (αρχείο .pdf) ...</legend>
-            <input type="file" id="cv" accept=".pdf" name="cv">
         </fieldset>
 
         <input type= "submit" value="Υποβολή στοιχείων"><br>
@@ -115,7 +162,7 @@
                 document.querySelector("#age").style.backgroundColor = "#bf0f0f";
                 alert("Δεν επιτρέπεται υποβολή της φόρμας για ηλικία μικρότερη των 18");
             }
-            else document.querySelector("#age").style.backgroundColor="white";
+            document.querySelector("#age").style.backgroundColor="white";
         })
 
         //μέτρησε χαρακτήρες που απομένουν
@@ -173,3 +220,5 @@
             showJ.value = j.value;
         }
     </script>
+</body>
+</html>
