@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>522- our first flag</title>
+    <style>
+        canvas {
+            background-color: beige;
+        }
+    </style>
+</head>
+<body>
+    <canvas id="canvas" width="1000" height="800"></canvas>
+    <script>
+        const ctx = document.querySelector("canvas").getContext("2d");
+        greekFlag(500, [50,50]);
+        function greekFlag(width, point){
+            const height = width*2/3;
+            ctx.fillStyle = "#215EB1";
+            ctx.fillRect(...point, width, height);
+            ctx.fillStyle = "white";
+            ctx.fillRect(point[0] + width*4/10, point[1]+1, width/5, height-2);
+            ctx.fillRect(point[0]+1, point[1] + width*7/30, width-2, width/5);
+        }
+    </script>
+</body>
+</html>

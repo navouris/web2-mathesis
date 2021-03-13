@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v323a - canvas arcs</title>
+</head>
+<body>
+    <canvas width="1000" height="600"></canvas>
+    <script>
+        let ctx = document.querySelector("canvas").getContext("2d");
+        const r = () => Math.floor(Math.random()*256);
+        const randomColor = () => `rgb(${r()},${r()},${r()})`;
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 5;
+        for (let circle=0;circle<4;circle++){
+            ctx.beginPath();
+            ctx.moveTo(300,300)
+            let startAngle = Math.PI*circle/2
+            ctx.fillStyle = randomColor();
+            ctx.arc(300,300, 200, startAngle, startAngle + Math.PI/2, false);
+            ctx.fill();
+            ctx.beginPath();
+            ctx.moveTo(300,300)
+            ctx.arc(300,300, 200, startAngle, startAngle + Math.PI/2, false);
+            ctx.closePath();
+            ctx.stroke();
+        }
+
+    </script>
+</body>
+</html>

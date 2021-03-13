@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v526-country</title>
+    <style>
+        body {
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width =  window.innerWidth;
+        canvas.height = window.innerHeight;
+        const xw = canvas.width;
+        const yw = canvas.height
+
+        function r() {
+            return Math.floor(Math.random() * 256); 
+        }
+        function randomColor() {
+            return `rgb(${r()},${r()},${r()})`
+        }
+        const wallColor = ["#F8F1F1", "#fcf8e8", "#fde8cd", "#fff3e6", ]
+        const doorColor = ["#1a508b", "#007965", "#48426d", "#583d72"]
+        const roofColor = ["#c70039", "#007965"]
+
+        function colorSelect(palette){
+            return palette[Math.floor(Math.random() * palette.length)];
+        }
+
+        class House {
+            constructor(x,y, scale){
+                this.x = x;
+                this.y = y;
+                this.scale = scale;
+                // colors
+                this.wallColor = colorSelect(wallColor);
+                this.doorColor = colorSelect(doorColor); 
+                this.roofColor = colorSelect(roofColor);
+            }
+            draw = function() {
+                // dimensions - scale is the height of the house as percentage of screen height
+                const wallHeight = yw * this.scale;
+                const wallWidth = yw * this.scale;
+                //walls
+                ctx.fillStyle = this.wallColor;
+                // ctx.fillStyle= "lightyellow";
+                ctx.fillRect(this.x, this.y - wallWidth, wallWidth, wallHeight);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "black";
+                ctx.strokeRect(this.x, this.y - wallWidth, wallWidth, wallHeight);
+                //door
+                const doorHeight = wallHeight/2;
+                const doorWidth = wallHeight/3
+                ctx.fillStyle = this.doorColor;
+                ctx.fillRect(this.x + doorWidth, this.y - doorHeight, doorWidth, doorHeight);
+                ctx.strokeRect(this.x + doorWidth, this.y - doorHeight, doorWidth, doorHeight);
+                // door handle
+                ctx.beginPath();
+                ctx.arc(this.x + 1.8*doorWidth, this.y - 0.5*doorHeight, 5, 0, 2*Math.PI)
+                ctx.fillStyle = "black";
+                ctx.fill();
+                //roof
+                const roofEdge = wallWidth/4;
+                const roofHeight = wallHeight/2;
+                ctx.beginPath();
+                ctx.moveTo(this.x - roofEdge, this.y - wallHeight);
+                ctx.lineTo(this.x + wallWidth/2, this.y - wallHeight - roofHeight);
+                ctx.lineTo(this.x + wallWidth + roofEdge, this.y - wallHeight);
+                ctx.fillStyle = this.roofColor;
+                ctx.fill();
+                ctx.beginPath();
+                ctx.moveTo(this.x - roofEdge, this.y - wallHeight);
+                ctx.lineTo(this.x + wallWidth/2, this.y - wallHeight - roofHeight);
+                ctx.lineTo(this.x + wallWidth + roofEdge, this.y - wallHeight);
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+
+        class Village {
+             constructor(name, place, streets, housesPerStreet, density=0.5, scale=0.05){
+                 console.log(place, streets, housesPerStreet, density);
+                 this.name = name;
+                 this.startX = place[0] * xw;
+                 this.startY = place[1] * yw;
+                 this.streets = streets;
+                 this.numberHouses = housesPerStreet;
+                 this.density = density;
+                 this.scale = scale;
+                 this.houses = [];
+                 this.build(); 
+                 console.log(this.houses)
+             }
+             build = function() {
+                console.log("build", this.streets, this.houses)
+                for (let street=0; street<this.streets; street++){
+                    let y = this.startY + street * yw * this.scale * 0.8;
+                    for (let house=0; house<this.numberHouses; house++){
+                        let x = this.startX + street * xw * this.scale*0.3 + house * yw * this.scale*(2-this.density);
+                        console.log(x, y);
+                        if (Math.random()>0.5){
+                            this.houses.push(new House(x, y, this.scale))
+                        }
+                    }
+                }
+             }
+             draw = function() {
+                this.houses.forEach(h=> h.draw());
+                ctx.font = `${yw*this.scale}px Arial`;
+                ctx.fillText(this.name, this.startX, this.startY-yw*this.scale*2)
+             }
+        }
+        class Country {
+            constructor (name){
+                this.name = name;
+                this.villages = []
+            }
+            draw = function() {
+                this.villages.forEach(v => v.draw());
+            }
+            
+        }
+
+        const myCountry = new Country("Neverland");
+        myCountry.villages.push(new Village ("Κάτω Ραχούλα", [0.2, 0.7], 3, 4, 0.5));
+        myCountry.villages.push(new Village("Πλάτανος", [0.1, 0.3], 4, 3, 1));
+        myCountry.villages.push(new Village("Διαφάνι", [0.5, 0.5], 5, 2, 0))
+        // render
+        myCountry.draw();
+    </script>
+    
+</body>
+</html>

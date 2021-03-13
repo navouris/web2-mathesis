@@ -1,0 +1,29 @@
+body {
+    color: grey;
+    cursor: pointer;
+}
+.point {
+    position: absolute;
+    display: block;
+    color: black;
+    text-align: center;
+    font-size: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    z-index: 100;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 5px solid black;
+    background-color: white;
+}
+#info {
+    position: absolute;
+    display: none;
+    padding: 10px;
+    text-align: center;
+    background-color: rgb(0,0,200);
+    font-size: 1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    z-index: 101;
+    border-radius: 10px;
+}

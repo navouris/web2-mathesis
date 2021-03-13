@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>v524-smiley</title>
+</head>
+<body>
+    <canvas width="1000" height="400"></canvas>
+    <script>
+        let ctx = document.querySelector("canvas").getContext("2d");
+        for (let _i=0;_i<8;_i++){
+            smiley(100+_i*120, 100, 50)
+        }
+        // smiley(200,200, 100)
+        function smiley(x,y, radius){
+            ctx.fillStyle = "yellow";
+            ctx.strokeStyle = "black";
+            ctx.lineWidth = 5;
+            // face
+            ctx.beginPath()
+            ctx.arc(x,y, radius, 0, Math.PI*2, false)
+            ctx.fill();
+            ctx.beginPath()
+            ctx.arc(x,y, radius, 0, Math.PI*2, false)
+            ctx.stroke();
+            //smile
+            ctx.beginPath()
+            ctx.arc(x,y, Math.round(radius/2), 0, Math.PI, false)
+            ctx.stroke();
+            //eyes
+            ctx.fillStyle = "black";
+            ctx.beginPath();
+            ctx.arc(x-radius/2,y-radius/3, Math.round(radius/10), 0, Math.PI*2, false)
+            ctx.fill();
+            ctx.beginPath();
+            ctx.arc(x+radius/2,y-radius/3, Math.round(radius/10), 0, Math.PI*2, false)
+            ctx.fill();
+
+        }
+
+    </script>
+</body>
+</html>

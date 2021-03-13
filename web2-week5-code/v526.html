@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>house - v526</title>
+    <style>
+        body {
+            margin:0;
+        }
+    </style>
+</head>
+<body>
+    <canvas></canvas>
+    <script>
+        const canvas = document.querySelector("canvas");
+        const ctx = canvas.getContext("2d");
+        canvas.width =  window.innerWidth;
+        canvas.height = window.innerHeight;
+        const xw = canvas.width;
+        const yw = canvas.height
+
+        const wallColor = ["#F8F1F1", "#fcf8e8", "#fde8cd", "#fff3e6", ]
+        const doorColor = ["#1a508b", "#007965", "#48426d", "#583d72"]
+        const roofColor = ["#c70039", "#007965"]
+
+        function colorSelect(palette){
+            return palette[Math.floor(Math.random() * palette.length)];
+        }
+
+        class House {
+            constructor(x,y, scale){
+                this.x = x;
+                this.y = y;
+                this.scale = scale;
+                // colors
+                this.wallColor = colorSelect(wallColor);
+                this.doorColor = colorSelect(doorColor); 
+                this.roofColor = colorSelect(roofColor);
+            }
+            draw = function() {
+                // σκιά
+                ctx.shadowBlur= 10;
+                ctx.shadowColor = "grey";
+
+                // dimensions - scale is the height of the house as percentage of screen height
+                const wallHeight = yw * this.scale;
+                const wallWidth = yw * this.scale;
+                //walls
+                ctx.fillStyle = this.wallColor;
+                // ctx.fillStyle= "lightyellow";
+                ctx.fillRect(this.x, this.y - wallWidth, wallWidth, wallHeight);
+                ctx.lineWidth = 3;
+                ctx.strokeStyle = "black";
+                ctx.strokeRect(this.x, this.y - wallWidth, wallWidth, wallHeight);
+                //door
+                const doorHeight = wallHeight/2;
+                const doorWidth = wallHeight/3
+                ctx.fillStyle = this.doorColor;
+                ctx.fillRect(this.x + doorWidth, this.y - doorHeight, doorWidth, doorHeight);
+                ctx.strokeRect(this.x + doorWidth, this.y - doorHeight, doorWidth, doorHeight);
+                // door handle
+                ctx.beginPath();
+                ctx.arc(this.x + 1.8*doorWidth, this.y - 0.5*doorHeight, 5, 0, 2*Math.PI)
+                ctx.fillStyle = "black";
+                ctx.fill();
+                //roof
+                const roofEdge = wallWidth/4;
+                const roofHeight = wallHeight/2;
+                ctx.beginPath();
+                ctx.moveTo(this.x - roofEdge, this.y - wallHeight);
+                ctx.lineTo(this.x + wallWidth/2, this.y - wallHeight - roofHeight);
+                ctx.lineTo(this.x + wallWidth + roofEdge, this.y - wallHeight);
+                ctx.fillStyle = this.roofColor;
+                ctx.fill();
+                ctx.beginPath();
+                ctx.moveTo(this.x - roofEdge, this.y - wallHeight);
+                ctx.lineTo(this.x + wallWidth/2, this.y - wallHeight - roofHeight);
+                ctx.lineTo(this.x + wallWidth + roofEdge, this.y - wallHeight);
+                ctx.closePath();
+                ctx.stroke();
+            }
+        }
+        // ουρανός
+        const grad = ctx.createLinearGradient(0,0, xw, 0.5*yw);
+        grad.addColorStop(0, "white");
+        grad.addColorStop(1, "skyblue");
+        ctx.fillStyle = grad;
+        ctx.fillRect(0,0, xw, yw);
+
+        // δημιουργώ ένα χωριό
+        const theVillage = [];
+        const name = "Το Διαφάνι";
+        ctx.font = `${0.05*yw}px sans-serif`;
+        ctx.fillStyle = "darkgreen";
+        ctx.fillText(name, xw*0.1, yw*0.5);
+        for (let i=0; i<4; i++){
+            theVillage.push(new House(xw*0.1+xw*0.18*i, yw*0.4, 0.1));
+            theVillage[theVillage.length-1].draw();
+        }
+    </script>
+    
+</body>
+</html>
