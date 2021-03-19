@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Flex</title>
+    <style>
+        .container {
+            display: flex;
+            border: 1px dotted black;
+            height: 16em;
+            flex-direction: row;
+            justify-content:space-evenly;
+            align-items: baseline;
+            flex-wrap: wrap;
+            align-content: stretch;
+        }
+        .item {
+            border: 1px dotted gray;
+            background-color: rgb(201, 226, 162);
+            color: blue;
+            text-align: center;
+            padding: 0 2em;
+            flex-basis: 50px;
+        }
+        .item:nth-child(2) {
+            background-color:khaki;
+            /*align-self:stretch;*/
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="item">1. Lorem ipsum dolor sit amet, consectetur adipiscing elit.</div>
+        <div class="item">2. Maecenas risus libero, elementum fermentum sapien ut, condimentum pellentesque mi. </div>
+        <div class="item">3. Curabitur euismod est suscipit facilisis auctor.</div>
+        <div class="item">4. Cras eu risus ut arcu ullamcorper bibendum.</div>
+        <div class="item">5. Nunc neque ligula, mollis eu nisl non, facilisis sodales metus.</div>
+        <!--<div class="item">6. Aliquam ut condimentum libero. Nulla sagittis finibus euismod.</div>
+        <div class="item">7. Cras ac enim vitae ante congue vestibulum sit amet ac mauris.</div>
+        <div class="item">8. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.</div>
+        <div class="item">9. Mauris feugiat venenatis mi, in pulvinar sapien bibendum vitae.</div>-->
+    </div>
+</body>
+</html>
