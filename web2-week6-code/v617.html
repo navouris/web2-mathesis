@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch-example</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="id"></div>
+<script>
+const urlCountry = 'https://restcountries.eu/rest/v2/name/';
+const urlCode = 'https://restcountries.eu/rest/v2/alpha/';
+const div= document.querySelector("#id");
+
+function loadCountryNameFromCode(code) {
+  // επιστρέφει Promise του αποτελέσματος
+  return new Promise((resolve, reject) => {
+    fetch(urlCode + code)
+      .then((resp) => {
+        if (resp.status == 200) {
+          return resp.json();
+        } else reject(new Error(response.status));
+      })
+      .then((data) => {
+        resolve(data['name']);
+      });
+  });
+}
+
+function findBorders(country) {
+  fetch(urlCountry + country)
+    .then((response) => {
+      if (response.status === 200) {
+        return response.json();
+      } else throw new Error(response.status);
+    })
+    .then((data) => {
+      const countryName = data[0].name
+      if (data[0].borders.length > 0) {
+        // βρήκαμε τους καλούς γείτονες
+        console.log(data[0].borders);
+        const theCountries = [];
+        data[0].borders.forEach((item) => {
+          theCountries.push(loadCountryNameFromCode(item));
+        });
+        Promise.all(theCountries) // δέχεται ένα array από υποσχέσεις
+          .then((allCountriesNames) => {
+            div.innerHTML += `H χώρα ${countryName} συνορεύει με τις εξής χώρες: ${allCountriesNames}`; // render the result
+          })
+          .catch((error) => {
+            console.log(error);
+          });
+      }
+      else div.innerHTML += `H χώρα ${countryName} δεν συνορεύει με καμιά χώρα...`; // render the result
+    })
+    .catch((error)=>{
+      div.innerHTML += `Δεν βρέθηκε η χώρα ${country}`
+    });
+}
+
+findBorders('costa');
+
+
+</script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>O ανυπόμονος πελάτης</title>
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+        }
+    </style>
+    <body>
+    </body>
+</head>
+<body>
+    <div></div>
+<script>
+    let display = document.querySelector('div');
+
+    class Pelatis {
+        constructor (delState, t){
+            this.delivered = delState;
+            this.timer = t;
+            this.setting = setInterval(()=>this.checkDelivery(), 1000);
+        }
+        checkDelivery = function() {
+            if (this.delivered == "έφτασε"){
+                clearInterval(this.setting);
+                display.innerHTML += "ΠΕΛΑΤΗΣ: Το δέμα έφτασε μετά "+ this.timer + 'sec.<br>';
+                return;
+            }
+            display.innerHTML += "ΠΕΛΑΤΗΣ: περιμένω ..." + ++this.timer + '<br>';
+        }
+    }
+    class Courrier{
+        constructor(pelatis, delay){
+            this.pelatis = pelatis;
+            this.delay = delay;
+            this.setting = setTimeout(() => {
+                this.pelatis.delivered = "έφτασε";
+                display.innerHTML += "ΚΟΥΡΙΕΡ: Παρέδωσα το δέμα <br>";
+            }, this.delay);
+        }
+    }
+
+
+    const p = new Pelatis("όχι", 0);
+    new Courrier(p, 8000);
+
+</script>
+</body>
+</html>

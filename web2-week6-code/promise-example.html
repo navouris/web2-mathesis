@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courrier delivery</title>
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>   
+    let display = document.querySelector('div');
+    //αρχή προγράμματος
+    display.innerHTML += 'αρχή προγράμματος<br>';
+    // setTimout(, 0)
+    setTimeout(() => display.innerHTML += 'setTimeout<br>', 0);
+    // requestAnimationFrmae
+    requestAnimationFrame(() =>
+        display.innerHTML +='requestAnimationFrame<br>');
+    // Promise object with two .then objects
+    Promise.resolve()
+        .then(() => display.innerHTML +='promise1<br>')
+        .then(() => display.innerHTML +='promise2<br>');
+    // end of script
+    display.innerHTML +='τέλος προγράμματος<br>';
+    
+</script>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>fetch-example</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <div id="id"></div>
+<script>
+    const url = "https://restcountries.eu/rest/v2/name/"
+    const div= document.querySelector("#id");
+    div.innerHTML = "<div>Στοιχεία για την χώρα είναι:</div>"
+    const country = "Russia"
+    fetch(url+country)
+    .then((reply)=>{
+        if (reply.status === 200){
+            return reply.json();
+        } else throw new Error(reply.status);
+    })
+    .then((reply)=>{
+        if (reply.length<1){
+            throw new Error('country not found')
+        }else {
+            div.innerHTML += 
+            `Η χώρα ${country} έχει πρωτεύουσα την πόλη ${reply[0].capital}`
+            + 
+            `<br>και έχει πληθυσμό ${reply[0].population} κατοίκους`
+        }
+    })
+
+</script>
+</body>
+</html>

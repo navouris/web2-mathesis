@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>courrier delivery</title>
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+</body>
+<script>   
+    let display = document.querySelector('div');
+    //αρχή προγράμματος
+    display.innerHTML += 'αρχή προγράμματος<br>';
+    new Promise(function(resolve, reject) {
+        setTimeout(() => resolve(1), 1000); // η υπόσχεση υλοποιείται σε 1"
+    }).then(function(result) { // καλείται ο 1ος καταναλωτής then()
+        display.innerHTML += "καταναλωτής-1: "+result+"<br>"; // εμφανίζει το 1
+        return result * 2; // επιστρέφει την τιμή 2
+    }).then(function(result) { // καλείται ο 2ος καταναλωτής
+        display.innerHTML += "καταναλωτής-2: "+result+"<br>";  // εμφανίζει το 2
+        return result * 2; // επιστρέφει την τιμή 4
+    }).then(function(result) { // καλείται ο 3ος καταναλωτής
+        display.innerHTML += "καταναλωτής-3: "+result+"<br>";  // εμφανίζει το 4
+        return result * 2;
+    });
+    display.innerHTML += 'τέλος προγράμματος<br>';
+
+
+    // 2o παράδειγμα
+    display.innerHTML += 'αρχή 2ου προγράμματος<br>';
+    let promise = new Promise(function(resolve, reject) {
+        setTimeout(() => resolve(1), 1000);
+    });
+
+    promise.then(function(result) {
+        display.innerHTML += "καταναλωτής-1: "+result+"<br>"; 
+        return result * 2;
+    });
+
+    promise.then(function(result) {
+        display.innerHTML += "καταναλωτής-2: "+result+"<br>"; 
+        return result * 2;
+    });
+
+    promise.then(function(result) {
+        display.innerHTML += "καταναλωτής-3: "+result+"<br>"; 
+        return result * 2;
+    });
+
+    display.innerHTML += 'τέλος 2ου προγράμματος<br>';
+    
+</script>
+</html>

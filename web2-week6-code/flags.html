@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Flags</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        #flag {
+            margin:1rem;
+            border: 1px solid grey;
+        }
+        #name {
+            font-size: 1.5rem;
+            color: grey;
+        }
+        #msg {
+            color: red;
+            margin-top: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <label for="country">Country:</label>
+        <input list="country" id="selectedCountry">
+        <datalist id="country" >
+        </datalist><br>
+    </section>
+    <section>
+        <img width="300" id="flag">
+        <div id="name"></div>
+    </section>
+    <section>
+        <div id=msg></div>
+    </section>
+    <script>
+        const countryBox = document.querySelector("#selectedCountry");
+        const listCountries = document.querySelector("#country");
+        const flag = document.querySelector("#flag");
+        const name = document.querySelector("#name");
+        countryBox.addEventListener("keyup", handler);
+
+        function handler(e){
+            document.querySelector("#msg").textContent="";
+            console.log(e.keyCode, countryBox.value.length );
+            if(e.keyCode === 13 || countryBox.value.length>2){
+                let url = "https://restcountries.eu/rest/v2/name/"+countryBox.value;
+                console.log(url)
+                fetch(url)
+                    .then(response => { 
+                        if (response.status == 200) {
+                            return response.json();
+                            }
+                        else {
+                            console.log(response.status)
+                            throw new Error(response.status);
+                        }
+                    }).then((result)=>{
+                        console.log('result', result.length)
+                        if (result.length === 1){
+                            flag.src = result[0]['flag'];
+                            name.innerHTML = result[0]["name"];
+                        } else if (result.length === 0){
+                            return errorMessage();
+                        } else showOptions(result);
+                    }).catch((error)=>{
+                        console.log(error);
+                        errorMessage();
+                    });
+                }
+                function errorMessage(){
+                    document.querySelector("#msg").textContent = "Sorry no country found";
+                }
+                function showOptions(result) {
+                    const optionsList = [];
+                    listCountries.innerHTML = "";
+                    result.forEach((item)=>{
+                        let country = item["name"];
+                        if (!(country in optionsList) ){
+                            let option = document.createElement('option')
+                            option.value = country;
+                            option.textContent = country;
+                            listCountries.appendChild(option);
+                            console.log(country);
+                        }
+                    })
+                }
+            };
+    </script>
+</body>
+</html>
