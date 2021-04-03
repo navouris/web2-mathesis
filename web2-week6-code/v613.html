@@ -24,8 +24,8 @@
         display.innerHTML +='requestAnimationFrame<br>');
     // Promise object with two .then objects
     const p = new Promise((resolve, reject)=>resolve());
-    p.then(display.innerHTML +='promise1<br>');
-    p.then(display.innerHTML +='promise2<br>');
+    p.then(()=>display.innerHTML +='promise1<br>');
+    p.then(()=>display.innerHTML +='promise2<br>');
     // end of script
     display.innerHTML +='τέλος προγράμματος<br>';
     
