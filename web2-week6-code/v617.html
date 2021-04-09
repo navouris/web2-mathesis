@@ -25,7 +25,7 @@ function loadCountryNameFromCode(code) {
       .then((resp) => {
         if (resp.status == 200) {
           return resp.json();
-        } else reject(new Error(response.status));
+        } else reject(new Error(resp.status));
       })
       .then((data) => {
         resolve(data['name']);
