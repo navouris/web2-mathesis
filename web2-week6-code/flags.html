@@ -47,7 +47,7 @@
             document.querySelector("#msg").textContent="";
             console.log(e.keyCode, countryBox.value.length );
             if(e.keyCode === 13 || countryBox.value.length>2){
-                let url = "https://restcountries.eu/rest/v2/name/"+countryBox.value;
+                let url = "https://restcountries.com/v2/name/"+countryBox.value;
                 console.log(url)
                 fetch(url)
                     .then(response => { 
