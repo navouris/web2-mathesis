@@ -1,5 +1,5 @@
-const urlCountry = 'https://restcountries.eu/rest/v2/name/';
-const urlCode = 'https://restcountries.eu/rest/v2/alpha/';
+const urlCountry = 'https://restcountries.com/v2/name/';
+const urlCode = 'https://restcountries.com/v2/alpha/';
 
 function loadCountryNameFromCode(code) {
   // επιστρέφει Promise του αποτελέσματος
